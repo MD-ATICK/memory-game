@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    background-color: #0a3c2f;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #0d614b;
+    padding: 15px 10px;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.reset {
+    padding: 15px 20px;
+    color: #267c65;
+    background-color: white;
+    border: none;
+    letter-spacing: 1px;
+    font-family: monospace;
+    font-weight: 500;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.reset:focus {
+    color: white;
+    background-color: #267c65;
+}
+
+.game {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    justify-content: center;
+    
+}
+
+.item {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    transition: 0.25s;
+    transform: rotateY(180deg);
+}
+
+.item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #209d7b;
+    transition: .25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+/* after click */
+
+.item.boxOpen {
+    transform: rotateY(0deg);
+}
+
+.text {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    color: rgb(206, 206, 206);
+    padding: 10px ;
+    border-radius: 15px;
+    letter-spacing: .8px;
+    font-weight: 600;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(274deg, rgba(0, 85, 42, 0.882) 0%, rgb(2, 126, 58) 99%, rgba(255,255,255,0.5728744939271255) 100%);
+} 
+a {
+    color: rgb(219, 219, 219);
+    font-weight: 600;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+.boxMatch::after,
+.boxOpen::after {
+    transform: rotateY(180deg);
+}
+
+@media (max-width : 400px) {
+   
+    .container{
+        padding: 30px;
+        border-radius: 20px;
+    }
+
+    .game{
+        height: 350px;
+        width: 300px;
+    }
+    .item{
+        width: 65px;
+        height: 60px;
+    }
+    
+}
+
